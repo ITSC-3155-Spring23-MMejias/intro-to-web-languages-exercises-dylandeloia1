@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <!-- these 4 lines of code create 4 ui elements
+            two text input areas, a button, and an output area.-->
+        <input type="text" id="txt-price" placeholder="Enter the price of the item">
+        <input type="text" id="txt-quantity" placeholder="Enter the quanity of the item">
+        <button id="btn-submit">Calculate</button>
+        <div id="output"></div>
+
+        <script>
+            // these 4 lines of code assign variable names to the different ui elements on the page
+            var priceInput = document.getElementById('txt-price');
+            var quantityInput = document.getElementById('txt-quantity');
+            var submitBtn = document.getElementById('btn-submit');
+            var output = document.getElementById('output');
+            
+            // this block of code executes when the submitBtn element is clicked
+            submitBtn.addEventListener('click', function () {
+                
+                // when the submitBtn is clicked these two variables get assigned to what the user inputted
+                var price = priceInput.value;
+                var quanity = quantityInput.value;
+
+                // these two lines of code cast the user input from string types into number types
+                price = +price;
+                quanity = +quanity;
+
+                // this if statement does user input validation (isNAN checks if input is 'Not A Number') and outputs an error when necessary
+                if (Number.isNaN(price) || Number.isNaN(quanity)) {
+                    output.innerHTML = 'Invalid input';
+                    return;
+                }
+
+                // these 3 lines do the actual calculation of the total price, rounds it, then outputs it to the page
+                var totalPrice = price * quanity;
+                totalPrice = Math.round(totalPrice * 100) / 100;
+                output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice;
+            });
+        </script>
+    </body>
+</html>
