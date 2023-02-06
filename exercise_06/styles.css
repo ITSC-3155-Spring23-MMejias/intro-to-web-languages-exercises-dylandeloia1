@@ -1,0 +1,12 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: aqua;
+}
+
+#main-title{
+    text-align: center;
+}
+
+.content{
+    margin-bottom: 12px;
+}
